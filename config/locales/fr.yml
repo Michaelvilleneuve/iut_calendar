@@ -1,0 +1,32 @@
+fr:
+  date:
+    day_names: &1
+    - 
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
+    - Dimanche
+    formats:
+      default: "%d. %B %Y"
+      short: "%d.%m.%Y"
+    month_names: &2
+    - 
+    - Janvier
+    - Février
+    - Mars
+    - Avril
+    - Mai
+    - Juin
+    - Juillet
+    - Aout
+    - Septembre
+    - Octobre
+    - Novembre
+    - Décembre
+    order: &3
+    - day
+    - month
+    - year
