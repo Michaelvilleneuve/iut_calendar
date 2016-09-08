@@ -8,7 +8,9 @@
       <% end %>
         <div class="matiere">
           <span class="date">De <strong><%= (event.starts_at + 2.hours).strftime("%Hh%M") %></strong> à <strong><%= (event.ends_at + 2.hours).strftime("%Hh%M") %></strong></span>
-          <p> <%= event.description %></p>
+          <p><i class="fa fa-pencil"></i> <%= event.title %></p>
+          <p><i class="fa fa-map-marker"></i> <%= event.room %></p>
+          <p><i class="fa fa-university"></i> <%= event.teacher %></p>
         </div>
     <% end %>
   </div>
