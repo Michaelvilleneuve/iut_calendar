@@ -4,7 +4,15 @@
       <% if new_day %>
         <% if index != 0 %></div><% end %>
         <div class="day">
-          <h3><%= l(event.starts_at, format: "%A %d %B %Y") %></h3>
+          <h3>
+          <% if event.starts_at.today? %>
+            Aujourd'hui
+          <% elsif event.starts_at.to_date == Date.tomorrow %>
+            Demain
+          <% else %>
+            <%= l(event.starts_at, format: "%A %d %B %Y") %>
+          <% end %>
+          </h3>
       <% end %>
         <div class="matiere">
           <span class="date">De <strong><%= (event.starts_at + 2.hours).strftime("%Hh%M") %></strong> à <strong><%= (event.ends_at + 2.hours).strftime("%Hh%M") %></strong></span>
