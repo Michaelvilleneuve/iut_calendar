@@ -23,6 +23,10 @@ h3 {
 	text-transform: uppercase;
 	padding-bottom: 30px
 }
+i {
+    width: 30px;
+    text-align: center;
+}
 .matiere {
     max-width: 300px;
     margin: auto;
