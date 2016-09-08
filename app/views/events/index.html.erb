@@ -25,4 +25,11 @@
 </div>
 <script>
   $('.calendar').slick({arrows: false});
+  $(document).keydown(function(e){
+    if (e.keyCode == 39) { 
+       $('.calendar').slick('slickNext');
+    } else if (e.keyCode == 37) {
+      $('.calendar').slick('slickPrev');
+    }
+});
 </script>
