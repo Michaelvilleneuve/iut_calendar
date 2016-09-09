@@ -2,7 +2,7 @@
 	<h1>Choisis ta classe</h1>
 	<div class="text-center">
 		<% @sources.each do |source| %>
-		<%= link_to source.title, source, class: 'source' %>
+		<%= link_to source.title, source_path(source.to_param), class: 'source' %>
 		<% end %>
 	</div>
 </div>
