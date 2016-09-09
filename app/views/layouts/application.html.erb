@@ -14,7 +14,9 @@
 </head>
 <body>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-
+<%= link_to '/', class: 'home' do %>
+	<i class="fa fa-home"></i>
+<% end %>
 <%= yield %>
 </body>
 </html>

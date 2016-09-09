@@ -17,6 +17,9 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	background: #F1F1F1;
 }
+h1 {
+	text-transform: uppercase;
+}
 h3 {
 	font-weight: bold;
 	text-align: center;
@@ -39,7 +42,7 @@ i {
 .date {
 	width: 92%;
 	padding: 10px;
-	color: #e67e22;
+	color: #e74c3c;
 	border-bottom: 1px solid #DDD;
 	font-size: 130%;
 	display: inline-block;
@@ -47,4 +50,31 @@ i {
 .single-item {
 	width: 100%;
 	float: left;
+}
+.source {
+    width: 89%;
+    text-align: center;
+    background: #e74c3c;
+    color: white !important;
+    border-bottom: 5px solid #c0392b;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 140%;
+    margin-top: 15px;
+    padding: 10px;
+    margin-left: auto;
+    display: inline-block;
+}
+.text-center {
+	text-align: center
+}
+a:hover {
+	background: #c0392b;
+}
+.home {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 140%;
+	z-index: 9;
 }
