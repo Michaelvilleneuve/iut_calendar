@@ -51,6 +51,10 @@ i {
 	width: 100%;
 	float: left;
 }
+.container {
+	max-width: 400px;
+	margin: auto
+}
 .source {
     width: 89%;
     text-align: center;

@@ -1,6 +1,8 @@
-<h1>Choisis ta classe</h1>
-<div class="text-center">
-<% @sources.each do |source| %>
-	<%= link_to source.title, source, class: 'source' %>
-<% end %>
+<div class="container">
+	<h1>Choisis ta classe</h1>
+	<div class="text-center">
+		<% @sources.each do |source| %>
+		<%= link_to source.title, source, class: 'source' %>
+		<% end %>
+	</div>
 </div>
