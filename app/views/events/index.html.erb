@@ -24,7 +24,7 @@
   </div>
 </div>
 <script>
-  $('.calendar').slick({arrows: false});
+  $('.calendar').slick({arrows: false, infinite: false});
   $(document).keydown(function(e){
     if (e.keyCode == 39) { 
        $('.calendar').slick('slickNext');
