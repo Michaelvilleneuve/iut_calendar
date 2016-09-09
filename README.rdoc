@@ -1,1 +1,12 @@
-Coucou
+AJOUT DES SOURCES
+=================
+
+rails c
+
+-> Source.create(title: 'LP DAWIN', url: '/Telechargements/ical/EdT_LP_DAWIN.ics?version=14.0.2.3&idICal=B9348B38C8FD1422D151578D8B643432&param=643d5b312e2e36325d2666683d3126663d3131303030')
+
+
+TASK D'IMPORT
+=============
+
+rake import
