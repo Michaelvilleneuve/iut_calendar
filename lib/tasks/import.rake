@@ -2,7 +2,11 @@ task :import => :environment do
   Source.all.each do |source|
     cal = source.get_calendar
 
-    source.events.delete_all if cal.first.events.count > 0
+    if cal.first.events.count > 0
+      puts "#{source.events.count} events to delete"
+      source.events.delete_all
+      source.events.count == 0 ? puts("Deletion successful") : puts("Deletion failed")
+    end
 
     cal.first.events.each do |new_event|
       desc = new_event.description.nil? ? "" : new_event.description.force_encoding('ISO-8859-1').encode('UTF-8')
@@ -26,5 +30,8 @@ task :import => :environment do
         description: desc
         )
     end
+
+    puts "#{source.events.count} new events"
+    puts "......"
   end
 end
