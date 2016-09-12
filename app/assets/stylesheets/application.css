@@ -115,6 +115,16 @@ header {
   background-color: #E9E9E9;
 }
 
+.source-info {
+  text-align: center;
+  font-weight: 800;
+}
+
+.source-info span {
+  position:relative;
+  top: 6px;
+}
+
 .home {
   position: absolute;
   top: 20px;

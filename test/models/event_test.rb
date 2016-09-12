@@ -11,6 +11,7 @@
 #  description :text
 #  room        :string
 #  teacher     :string
+#  source_id   :integer
 #
 
 require 'test_helper'
