@@ -118,6 +118,8 @@ header {
 .source-info {
   text-align: center;
   font-weight: 800;
+  color: #666;
+  font-size: 90%;
 }
 
 .source-info span {
