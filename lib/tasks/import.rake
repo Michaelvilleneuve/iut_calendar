@@ -5,7 +5,7 @@ task :import => :environment do
     unless cal.first.nil?
       if cal.first.events.count > 0
         puts "#{source.events.count} events to delete"
-        source.events.delete_all
+        source.events.destroy_all
         source.events.count == 0 ? puts("Deletion successful") : puts("Deletion failed")
       end
 
@@ -36,4 +36,5 @@ task :import => :environment do
       puts "......"
     end
   end
+  Event.where(source_id: nil).delete_all
 end
