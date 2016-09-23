@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+setTimeout(function() {
+	var notice = document.getElementById('notice');
+	if (notice) 
+		notice.className = 'hidden';
+}, 3000);

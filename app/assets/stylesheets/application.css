@@ -86,7 +86,29 @@ header {
   width: 100%;
   float: left;
 }
-
+#notice {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background: white;
+  border: 1px solid #CCC;
+  padding: 10px;
+  z-index: 999;
+  box-shadow: 0px 2px 1px #CCC;
+  width: 240px;
+  color: #000;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all .45s ease-in-out;
+     -moz-transition: all .45s ease-in-out;
+      -ms-transition: all .45s ease-in-out;
+       -o-transition: all .45s ease-in-out;
+          transition: all .45s ease-in-out;
+}
+.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
 .container {
   display: flex;
   flex-direction: column;

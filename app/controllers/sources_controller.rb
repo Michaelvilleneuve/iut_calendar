@@ -2,6 +2,8 @@ class SourcesController < ApplicationController
   before_action :set_source, only: [:show]
 
   def index
+    @is_noticed = cookies[:noticed] ? true : false
+    cookies[:noticed] = true
     @sources = Source.all
   end
 
