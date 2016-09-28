@@ -216,6 +216,16 @@ footer {
   top: -20px;
 }
 
+#show-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #e74c3c;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  font-weight: 800;
+  font-size: 123%;
+  padding: 15px 16px;
+}
 #show-menu > .icon {
   transform: rotate(90deg);
 }

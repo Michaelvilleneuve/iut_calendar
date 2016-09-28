@@ -46,7 +46,7 @@
         </div>
         <% if @events[index + 1] != nil and event.starts_at.strftime("%j") != @events[index + 1].starts_at.strftime("%j") %>
         <div class="menu">
-          <a class="source" id="show-menu" onclick="$('.content-repas').toggleClass('show');" href="#">
+          <a id="show-menu" onclick="$('.content-repas').toggleClass('show');return false;" href="#">
             <div>
               MENU DU RU
             </div>
