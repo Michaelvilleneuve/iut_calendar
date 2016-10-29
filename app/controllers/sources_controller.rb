@@ -6,7 +6,7 @@ class SourcesController < ApplicationController
   end
 
   def show
-    @events = @source.events.where("ends_at >= ?", DateTime.now).order('starts_at asc').limit(50)
+    @events = @source.events.where("ends_at >= ?", DateTime.now).where.not(title: "").order('starts_at asc').limit(50)
   end
 
   private

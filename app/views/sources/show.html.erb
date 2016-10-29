@@ -19,9 +19,9 @@
           <% end %>
           </h3>
       <% end %>
-        <div class="wrapper">
+         <div class="wrapper">
           <div class="matiere">
-            <div class="date">De <span class="bold"><%= (event.starts_at + 2.hours).strftime("%Hh%M") %></span> à <span class="bold"><%= (event.ends_at + 2.hours).strftime("%Hh%M") %></span></div>
+            <div class="date">De <span class="bold"><%= (event.starts_at + 1.hours).strftime("%Hh%M") %></span> à <span class="bold"><%= (event.ends_at + 1.hours).strftime("%Hh%M") %></span></div>
             <div class="info">
               <p>
                 <svg class="icon" viewBox="0 0 24 24">
