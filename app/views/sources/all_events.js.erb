@@ -1,0 +1,5 @@
+$('.calendar').slick('unslick');
+$('#display-all').remove();
+$('.calendar').append('<%= escape_javascript(render('pluck_events')) %> ');
+$('.calendar').slick({arrows: false, infinite: false});
+$('.calendar').slick('slickGoTo', $('#event-<%= @events.first.id %>').parent('.day').index());

@@ -55,7 +55,16 @@
         position: relative;
         z-index: 99999;
     }
+    .hidden {
+        transform: translateY(-600px);
+    }
 }
-.new_hw.hidden {
-    transform: translateY(-600px);
+#display-all {
+    a {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 140%;
+        display: inline-block;
+        padding: 22%;
+    }
 }

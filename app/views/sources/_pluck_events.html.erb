@@ -1,0 +1,19 @@
+<% @events.each_with_index do |event, index| %>
+  <% new_day = event.starts_at.strftime("%j") != @events[index - 1].starts_at.strftime("%j") %>
+  <% if new_day %>
+    <% if index != 0 %></div><% end %>
+    <div class="day">
+      <h3>
+      <% if event.starts_at.today? %>
+        Aujourd'hui
+      <% elsif event.starts_at.to_date == Date.tomorrow %>
+        Demain
+      <% else %>
+        <%= l(event.starts_at, format: "%A %d %B %Y") %>
+      <% end %>
+      </h3>
+  <% end %>
+    <%= render 'events/show', event: event %>
+    <%= render 'menu', index: index, event: event %>
+<% end %>
+</div>

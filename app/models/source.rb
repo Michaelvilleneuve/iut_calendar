@@ -23,4 +23,8 @@ class Source < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end 
+
+  def ordered_events
+    events.where("ends_at >= ?", DateTime.now).where.not(title: "").order('starts_at asc')
+  end
 end
