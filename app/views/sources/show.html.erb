@@ -1,8 +1,5 @@
-<%= link_to '/', class: 'home' do %>
-  <svg class="icon" viewBox="0 0 24 24">
-    <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
-  </svg>
-<% end %>
+<%= render 'layouts/menu_top' %>
+
 <div class="calendar">
     <% @events.each_with_index do |event, index| %>
       <% new_day = event.starts_at.strftime("%j") != @events[index - 1].starts_at.strftime("%j") %>
@@ -19,61 +16,23 @@
           <% end %>
           </h3>
       <% end %>
-         <div class="wrapper">
-          <div class="matiere">
-            <div class="date">De <span class="bold"><%= (event.starts_at + 1.hours).strftime("%Hh%M") %></span> à <span class="bold"><%= (event.ends_at + 1.hours).strftime("%Hh%M") %></span></div>
-            <div class="info">
-              <p>
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
-                </svg>
-                <span><%= event.title %></span>
-              </p>
-              <p>
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
-                </svg>
-                <%= event.room %>
-              </p>
-              <p>
-                <svg class="icon" viewBox="0 0 24 24">
-                  <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
-                </svg>
-                <%= event.teacher %>
-              </p>
-            </div>
-          </div>
-        </div>
-        <% if @events[index + 1] != nil and event.starts_at.strftime("%j") != @events[index + 1].starts_at.strftime("%j") %>
-        <% unless Menu.where(menu_date: event.starts_at).first.nil? %>
-        <div class="menu">
-          <a id="show-menu" onclick="$('.content-repas').toggleClass('show');return false;" href="#">
-            <div>
-              MENU DU RU
-            </div>
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-            </svg>
-          </a>
-          <%= Menu.where(menu_date: event.starts_at).first.content.html_safe %>
-        </div>
-        <% end %>
-        <p class="source-info">
-          <span>
-            <svg style="padding-top:10px;width:20px;height:20px" viewBox="0 0 24 24">
-                <path fill="#666" d="M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M16.53,11.06L15.47,10L10.59,14.88L8.47,12.76L7.41,13.82L10.59,17L16.53,11.06Z" />
-            </svg>
-          </span>
-          <%= @source.title %>
-        </p>
-        <% end %>
+        <%= render 'events/show', event: event %>
+        <%= render 'menu', index: index, event: event %>
     <% end %>
   </div>
 </div>
 
 
+<%= render 'home_works/new', event: @events.first if @events.any? %>
+
+
 <script>
 $('.calendar').slick({arrows: false, infinite: false});
+
+var hash = window.location.hash.substr(1);
+if(hash !== "") {
+  $('.calendar').slick('slickGoTo', $('#event-'+hash).parent('.day').index());
+}
 $(document).keydown(function(e){
   if (e.keyCode == 39) {
      $('.calendar').slick('slickNext');

@@ -16,4 +16,5 @@
 
 class Event < ActiveRecord::Base
   belongs_to :source
+  has_many :home_works
 end

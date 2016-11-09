@@ -1,0 +1,30 @@
+<div class="matiere home-work" id="home-work-<%= event.id %>">
+    <div class="date">Devoirs
+    	<div class="right">
+			<button class="toggle-home-work form" data-id="<%= event.id %>">
+				<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+				    <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+				</svg>
+			</button>
+			<button class="toggle-home-work" data-id="<%= event.id %>">
+		        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+				    <path  d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z" />
+				</svg>
+	  		</button>
+    	</div>
+    </div>
+	<% event.home_works.each do |homework| %>
+	    <div class="info" id="home-work-el-<%= homework.id %>">
+          <h4><%= homework.title %></h4>
+		  <p><%= homework.description %></p>
+		  <%= link_to edit_event_home_work_path(event_id: event.id, id: homework.id) do %>
+		  	Modifier
+		  <% end %>
+		  &nbsp;
+		  <%= link_to event_home_work_path(event_id: event.id, id: homework.id), method: :delete, remote: true, :data => {:confirm => 'Tu es sur ?'} do %>
+		  	Supprimer
+		  <% end %>
+		  <br>
+	    </div>
+	 <% end %>
+</div>

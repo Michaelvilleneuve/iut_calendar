@@ -11,6 +11,8 @@
 
 class Source < ActiveRecord::Base
   has_many :events
+  has_many :home_works, -> { uniq }, through: :events
+
   def get_calendar
     require 'icalendar'
     require 'net/http'

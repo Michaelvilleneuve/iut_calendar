@@ -1,0 +1,11 @@
+$('#count').html('<%= @event.home_works.count %>');
+<% if @home_work.errors.messages.any? %>
+	alert('Le travail proposé n\'est pas valide. Vérifiez les champs.');
+<% end %>
+setTimeout(function() {
+	$('.new_hw').addClass('hidden');
+}, 200);
+setTimeout(function() {
+	window.location.href = window.location.href.split('#')[0] + "#<%= @event.id %>";
+	location.reload();
+}, 600);

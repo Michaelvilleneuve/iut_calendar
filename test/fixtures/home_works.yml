@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: home_works
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  event_id    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :text
+#  verified    :boolean
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  event_id: 
+
+two:
+  title: MyString
+  event_id: 

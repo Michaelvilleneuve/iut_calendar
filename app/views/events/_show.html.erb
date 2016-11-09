@@ -1,0 +1,43 @@
+<div class="wrapper" id="event-<%= event.id %>">
+  <div class="matiere">
+    <div class="date">De <span class="bold"><%= (event.starts_at + 1.hours).strftime("%Hh%M") %></span> à <span class="bold"><%= (event.ends_at + 1.hours).strftime("%Hh%M") %></span>
+    </div>
+    <div class="info">
+      <p>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+        </svg>
+        <span><%= event.title %></span>
+      </p>
+      <p>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+        </svg>
+        <%= event.room %>
+      </p>
+      <p>
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+        </svg>
+        <%= event.teacher %>
+      </p>
+      <p>
+    	<% if event.home_works.any? %>
+      		<button class="toggle-home-work" data-id="<%= event.id %>">
+		        <svg class="icon" viewBox="0 0 24 24">
+				    <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+				</svg>
+      		</button>
+		<% else %>
+      		<button class="toggle-home-work form" data-id="<%= event.id %>">
+			<svg class="icon" viewBox="0 0 24 24">
+			    <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+			</svg>
+			</button>
+		<% end %>
+        <%= event.home_works.any? ? "#{event.home_works.count} #{"devoir".pluralize(event.home_works.count)} à faire" : 'Pas de devoirs.' %>
+      </p>
+    </div>
+  	<%= render 'home_works/index', event: event if event.home_works.any? %>
+  </div>
+</div>

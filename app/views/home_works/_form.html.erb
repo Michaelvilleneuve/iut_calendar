@@ -1,0 +1,8 @@
+<% url = @home_work.persisted? ? event_home_work_path(id: @home_work.id) : event_home_works_path(event_id: @event.id) %>
+  	<div class="date">
+<%= form_for(@home_work, url: url,  html: {class: "form-horizontal", role: "form"}, remote: !@home_work.persisted?) do |f| %>
+		Titre du devoir : <%= f.text_field :title %>
+    	Description : <%= f.text_area :description %>
+    	<button type="submit">Proposer</button>
+    </div>
+  <% end %>

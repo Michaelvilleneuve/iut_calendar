@@ -6,6 +6,7 @@ class SourcesController < ApplicationController
   end
 
   def show
+    @home_work = HomeWork.new
     @events = @source.events.where("ends_at >= ?", DateTime.now).where.not(title: "").order('starts_at asc').limit(50)
   end
 
