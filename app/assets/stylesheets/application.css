@@ -44,6 +44,7 @@ header {
 
 .wrapper {
   margin: 0 16px 16px;
+  z-index: 99;
 }
 
 .matiere {
@@ -169,6 +170,7 @@ header {
   font-size: 130%;
   z-index: 9; 
 }
+
 
 .home:hover {
   background-color: transparent;

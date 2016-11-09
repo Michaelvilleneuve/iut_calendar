@@ -1,7 +1,7 @@
 <%= render 'layouts/menu_top' %>
 <h3>Les devoirs en <%= @source.title %></h3>
+<% @home_works.each do |hw| %>
 <div class="wrapper">
-  <% @home_works.each do |hw| %>
   <div class="matiere">
     <div class="date">
 		<%= hw.event.title %>
@@ -25,5 +25,5 @@
       </p>
     </div>
   </div>
-  <% end %>
 </div>
+<% end %>
