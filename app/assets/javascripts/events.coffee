@@ -8,3 +8,8 @@ $(document).on 'click','.toggle-home-work, .close', ->
 		$('.new_hw').find('form').attr('action', '/events/'+id+'/home_works')
 	else
 		$("#home-work-#{id}").toggleClass('show')
+
+
+$(document).on 'click', '#load_more', ->
+	$('.loader').removeClass('hidden')
+	$('.text').remove()
