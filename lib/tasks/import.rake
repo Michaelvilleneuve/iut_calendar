@@ -3,12 +3,7 @@ task :import => :environment do
     cal = source.get_calendar
 
     unless cal.first.nil?
-      if cal.first.events.count > 0
-        puts "#{source.events.count} events to delete"
-        source.events.destroy_all
-        source.events.count == 0 ? puts("Deletion successful") : puts("Deletion failed")
-      end
-
+      puts source.events.count
       cal.first.events.each do |new_event|
         desc = new_event.description.nil? ? "" : new_event.description.force_encoding('ISO-8859-1').encode('UTF-8')
         decomposed = desc.split("\n")
@@ -29,12 +24,10 @@ task :import => :environment do
           room: room,
           source: source,
           description: desc
-          )
+          ) unless Event.where(starts_at: new_event.dtstart.to_s, title: title, source: source).any?
       end
-
-      puts "#{source.events.count} new events"
-      puts "......"
     end
+    puts source.events.count
   end
   Event.where(source_id: nil).delete_all
 end
