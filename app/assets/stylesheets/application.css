@@ -62,11 +62,6 @@ header {
   padding-top: 20px;
   margin-bottom: 0px;
 }
-@media (min-width: 400px) {
-  .matiere {
-    max-width: 330px;
-  }
-}
 
 .info {
   padding: 0 16px 16px;
@@ -312,4 +307,10 @@ button[type=submit] {
 }
 .right {
   float: right;
+}
+
+@media (min-width: 400px) {
+  .matiere {
+    max-width: 330px;
+  }
 }
