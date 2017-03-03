@@ -1,7 +1,7 @@
 task :import => :environment do
   Source.all.each do |source|
     cal = source.get_calendar
-
+    Event.where(source: source).delete_all
     unless cal.first.nil?
       puts source.events.count
       cal.first.events.each do |new_event|
@@ -24,7 +24,7 @@ task :import => :environment do
           room: room,
           source: source,
           description: desc
-          ) unless Event.where(starts_at: new_event.dtstart.to_s, title: title, source: source).any?
+          )
       end
     end
     puts source.events.count

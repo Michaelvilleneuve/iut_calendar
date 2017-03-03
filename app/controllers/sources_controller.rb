@@ -11,7 +11,7 @@ class SourcesController < ApplicationController
 
   def show
     @home_work = HomeWork.new
-    @events = @source.ordered_events.where("starts_at <= ?", 10.days.from_now)
+    @events = @source.ordered_events.limit(100)
   end
 
   private
