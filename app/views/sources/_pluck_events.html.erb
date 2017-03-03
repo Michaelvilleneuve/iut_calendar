@@ -13,7 +13,7 @@
       <% end %>
       </h3>
   <% end %>
-    <%= render 'events/show', event: event %>
-    <%= render 'menu', index: index, event: event %>
+    <%= render 'events/show', event: event, cached: true %>
+    <%= render 'menu', index: index, event: event, cached: true %>
 <% end %>
 </div>
