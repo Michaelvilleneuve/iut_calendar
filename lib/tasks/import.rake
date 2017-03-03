@@ -2,6 +2,7 @@ task :import => :environment do
   Source.all.each do |source|
     cal = source.get_calendar
     Event.where(source: source).delete_all
+    HomeWork.delete_all
     unless cal.first.nil?
       puts source.events.count
       cal.first.events.each do |new_event|
