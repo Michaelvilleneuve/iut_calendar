@@ -15,8 +15,8 @@ class Source < ActiveRecord::Base
 
   def get_calendar
     require 'icalendar'
-    require 'net/http'
-    cal_file=(Net::HTTP.get "hyperplanning.iut.u-bordeaux.fr", url)
+    require "open-uri"
+    cal_file = URI.parse("https://hyperplanning.iut.u-bordeaux.fr#{url}").read
     Icalendar::Calendar.parse(cal_file)
   end
 
